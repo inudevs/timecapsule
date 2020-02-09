@@ -1,25 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { createGlobalStyle } from "styled-components";
+import styled from 'styled-components';
+
+import Header from "./components/Header";
+
+import Sctest from "./components/scrolltest";
 
 function App() {
+
+  const Wrapper = styled.div`
+  margin:0;
+  padding:0;
+  `
+
+  const GlobalStyles = createGlobalStyle`
+  @font-face {
+    font-family:'NBG' ;
+    src: url(${require("./assets/fonts/NanumBarunGothic.ttf")});
+  }
+  body{
+    font-family:'NBG', sans-serif;
+    margin:0;
+    padding:0;
+  }
+  `;
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      <GlobalStyles />
+      <Header />
+      <Sctest />
+    </Wrapper>
   );
 }
 
